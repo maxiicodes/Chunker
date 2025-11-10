@@ -5,14 +5,21 @@ plugins {
     alias(libs.plugins.node)
 }
 
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("./offline-repository")
+    }
+}
+
 dependencies {
     project(":cli")
 }
 
 node {
-    version.set("24.6.0")
-    npmVersion.set("11.5.2")
-    download.set(true)
+    version = "24.6.0"
+    npmVersion = "11.5.2"
+    download = true
 }
 
 // Hide tasks which aren't used (from node gradle plugin)
